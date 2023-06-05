@@ -14,6 +14,7 @@ export default function App({ Component, pageProps }) {
           margin: 0;
           padding: 0;
           font-family: ${inter.style.fontFamily};
+          font-size: 14px;
         }
       `}</style>
       <Component {...pageProps} />

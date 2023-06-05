@@ -1,5 +1,7 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
+import FollowerCard from "@/components/FollowerCard";
+import TodayCard from "@/components/TodayCard";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,6 +14,24 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </Head>
+      <FollowerCard
+        logoPath="/icon-facebook.svg"
+        type="facebook"
+        account="@nathanf"
+        follower="1044"
+        upOrDown="down"
+        count="12"
+        borderTopColor="border-t-facebook"
+      />
+      <br />
+      <TodayCard
+        label="Page Views"
+        logoPath="/icon-facebook.svg"
+        type="facebook"
+        number="52"
+        upOrDown="down"
+        percentage="3"
+      />
     </>
   );
 }
