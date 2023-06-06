@@ -11,9 +11,9 @@ function FollowerCard({
   borderTopColor,
 }) {
   return (
-    <section class="w-4/5 mx-auto">
-      <div class="w-full pt-1.5 rounded-md bg-gradient-to-r from-sns-instagram-left to-sns-instagram-right ">
-        <div class="w-full h-56 p-6 flex flex-col justify-between items-center rounded-b-md bg-theme-dark-darkDesaturatedBlue text-theme-dark-desaturatedBlue">
+    <section>
+      <div className={`w-full pt-1.5 rounded-md ${borderTopColor}`}>
+        <div className="w-full h-56 p-6 flex flex-col justify-between items-center rounded-b-md bg-theme-dark-darkDesaturatedBlue text-theme-dark-desaturatedBlue">
           <div className="flex items-center">
             <Image src={logoPath} alt={`${type} icon`} width={20} height={20} />
             <span className="ml-3 text-sm font-bold">{account}</span>

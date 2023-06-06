@@ -1,11 +1,30 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
+import { useEffect } from "react";
 import FollowerCard from "@/components/FollowerCard";
 import TodayCard from "@/components/TodayCard";
+import { socialMediaStats, socialMediaMetrics } from "@/assets/userData";
+import Toggle from "@/components/Toggle";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const toggleDarkMode = () => {
+    if (localStorage.getItem("theme") === "dark") {
+      localStorage.removeItem("theme");
+      document.documentElement.classList.remove("dark");
+    } else {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    }
+  };
+
+  useEffect(() => {
+    if (localStorage.getItem("theme") === "dark") {
+      document.documentElement.classList.add("dark");
+    }
+  }, []);
+
   return (
     <>
       <Head>
@@ -14,24 +33,62 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <FollowerCard
-        logoPath="/icon-facebook.svg"
-        type="facebook"
-        account="@nathanf"
-        follower="1044"
-        upOrDown="down"
-        count="12"
-        borderTopColor="border-t-facebook"
-      />
-      <br />
-      <TodayCard
-        label="Page Views"
-        logoPath="/icon-facebook.svg"
-        type="facebook"
-        number="52"
-        upOrDown="down"
-        percentage="3"
-      />
+      <main className="p-8 bg-theme-dark-bgVeryDarkBlue">
+        <div className=" text-theme-dark-desaturatedBlue font-bold">
+          <div>
+            <h1 className=" text-primary-white text-3xl font-bold">
+              Social Media Dashboard
+            </h1>
+            <span>Total Followers: 23,004</span>
+          </div>
+          <div className="h-[0.5px] bg-theme-dark-desaturatedBlue"></div>
+          <div className="flex justify-between">
+            <span>Dark Mode</span>
+            <Toggle handleToggle={toggleDarkMode} />
+          </div>
+        </div>
+        {/* <FollowerCard
+          logoPath={`/icon-${user1.socialMediaType}.svg`}
+          type={user1.socialMediaType}
+          account={user1.account}
+          follower={user1.follower}
+          changeType={user1.changeType}
+          count={user1.count}
+          borderTopColor={user1.borderTopColor}
+        /> */}
+        <ul className="flex flex-col space-y-6">
+          {socialMediaStats.map((info, idx) => (
+            <li key={idx}>
+              <FollowerCard
+                logoPath={`/icon-${info.socialMediaType}.svg`}
+                type={info.socialMediaType}
+                account={info.account}
+                follower={info.follower}
+                changeType={info.changeType}
+                count={info.count}
+                borderTopColor={info.borderTopColor}
+              />
+            </li>
+          ))}
+        </ul>
+        <h2 className="text-primary-white text-2xl font-bold">
+          Overview Today
+        </h2>
+        <ul className="flex flex-col space-y-6">
+          {socialMediaMetrics.map((info, idx) => (
+            <li key={idx}>
+              <TodayCard
+                label={info.label}
+                logoPath={`/icon-${info.socialMediaType}.svg`}
+                type={info.socialMediaType}
+                number={info.number}
+                changeType={info.changeType}
+                percentage={info.percentage}
+              />
+            </li>
+          ))}
+        </ul>
+      </main>
     </>
   );
 }

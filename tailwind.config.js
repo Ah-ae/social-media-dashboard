@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./pages/**/*.{js,jsx}", "./components/**/*.{js,jsx}"],
+  darkMode: "class",
   theme: {
     colors: {
       primary: {
@@ -18,7 +19,7 @@ module.exports = {
         youtube: "hsl(348, 97%, 39%)",
       },
       toggle: {
-        dark: "linear gradient hsl(210, 78%, 56%) to hsl(146, 68%, 55%)",
+        dark: { left: "hsl(210, 78%, 56%)", right: "hsl(146, 68%, 55%)" },
         light: "hsl(230, 22%, 74%)",
       },
       theme: {
