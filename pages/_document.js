@@ -1,24 +1,22 @@
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
+  const setThemeMode = `
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark')
+  } else {
+    document.documentElement.classList.remove('dark')
+  }
+`;
+
   return (
     <Html lang="en">
-      <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
-          rel="stylesheet"
-        ></link>
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </Head>
+      <Head />
+      <body>
+        <script dangerouslySetInnerHTML={{ __html: setThemeMode }} />
+        <Main />
+        <NextScript />
+      </body>
     </Html>
   );
 }

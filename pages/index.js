@@ -19,12 +19,6 @@ export default function Home() {
     }
   };
 
-  useEffect(() => {
-    if (localStorage.getItem("theme") === "dark") {
-      document.documentElement.classList.add("dark");
-    }
-  }, []);
-
   return (
     <>
       <Head>
