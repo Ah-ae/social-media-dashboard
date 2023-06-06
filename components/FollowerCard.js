@@ -8,11 +8,18 @@ function FollowerCard({
   follower,
   changeType,
   count,
-  borderTopColor,
 }) {
+  const colorVariants = {
+    facebook: "bg-sns-facebook",
+    twitter: "bg-sns-twitter",
+    instagram:
+      "bg-gradient-to-r from-sns-instagram-left to-sns-instagram-right",
+    youtube: "bg-sns-youtube",
+  };
+
   return (
     <section className="h-56 cursor-pointer">
-      <div className={`w-full pt-1.5 rounded-md ${borderTopColor}`}>
+      <div className={`w-full pt-1.5 rounded-md ${colorVariants[type]}`}>
         <div
           className="w-full h-56 p-6 flex flex-col justify-between items-center rounded-b-md 
         bg-theme-light-lightGrayishBlue 

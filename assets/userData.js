@@ -5,7 +5,6 @@ export const socialMediaStats = [
     follower: "1987",
     changeType: "up",
     count: "12",
-    borderTopColor: "bg-sns-facebook",
   },
   {
     socialMediaType: "twitter",
@@ -13,7 +12,6 @@ export const socialMediaStats = [
     follower: "1044",
     changeType: "up",
     count: "99",
-    borderTopColor: "bg-sns-twitter",
   },
   {
     socialMediaType: "instagram",
@@ -21,8 +19,6 @@ export const socialMediaStats = [
     follower: "11k",
     changeType: "up",
     count: "199",
-    borderTopColor:
-      "bg-gradient-to-r from-sns-instagram-left to-sns-instagram-right",
   },
   {
     socialMediaType: "youtube",
@@ -30,7 +26,6 @@ export const socialMediaStats = [
     follower: "8239",
     changeType: "down",
     count: "144",
-    borderTopColor: "bg-sns-youtube",
   },
 ];
 
