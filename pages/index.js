@@ -33,29 +33,20 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <main className="p-8 bg-theme-dark-bgVeryDarkBlue">
-        <div className=" text-theme-dark-desaturatedBlue font-bold">
+      <main className="p-8 bg-primary-white dark:bg-theme-dark-bgVeryDarkBlue">
+        <div className="text-theme-light-darkGrayishBlue dark:text-theme-dark-desaturatedBlue font-semibold transition duration-500">
           <div>
-            <h1 className=" text-primary-white text-3xl font-bold">
+            <h1 className="text-theme-light-veryDarkBlue dark:text-primary-white text-3xl font-bold">
               Social Media Dashboard
             </h1>
             <span>Total Followers: 23,004</span>
           </div>
-          <div className="h-[0.5px] bg-theme-dark-desaturatedBlue"></div>
+          <div className="h-px bg-theme-light-darkGrayishBlue dark:bg-theme-dark-desaturatedBlue"></div>
           <div className="flex justify-between">
             <span>Dark Mode</span>
             <Toggle handleToggle={toggleDarkMode} />
           </div>
         </div>
-        {/* <FollowerCard
-          logoPath={`/icon-${user1.socialMediaType}.svg`}
-          type={user1.socialMediaType}
-          account={user1.account}
-          follower={user1.follower}
-          changeType={user1.changeType}
-          count={user1.count}
-          borderTopColor={user1.borderTopColor}
-        /> */}
         <ul className="flex flex-col space-y-6">
           {socialMediaStats.map((info, idx) => (
             <li key={idx}>
@@ -71,8 +62,8 @@ export default function Home() {
             </li>
           ))}
         </ul>
-        <h2 className="text-primary-white text-2xl font-bold">
-          Overview Today
+        <h2 className="text-theme-light-darkGrayishBlue dark:text-primary-white text-2xl font-semibold">
+          Overview - Today
         </h2>
         <ul className="flex flex-col space-y-6">
           {socialMediaMetrics.map((info, idx) => (
