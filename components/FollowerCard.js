@@ -11,11 +11,14 @@ function FollowerCard({
   borderTopColor,
 }) {
   return (
-    <section>
+    <section className="h-56 cursor-pointer">
       <div className={`w-full pt-1.5 rounded-md ${borderTopColor}`}>
         <div
           className="w-full h-56 p-6 flex flex-col justify-between items-center rounded-b-md 
-        bg-theme-light-lightGrayishBlue dark:bg-theme-dark-darkDesaturatedBlue text-theme-light-darkGrayishBlue dark:text-theme-dark-desaturatedBlue
+        bg-theme-light-lightGrayishBlue 
+        hover:bg-theme-light-cardHoverBg
+        dark:bg-theme-dark-darkDesaturatedBlue dark:hover:bg-theme-dark-cardHoverBg 
+        text-theme-light-darkGrayishBlue dark:text-theme-dark-desaturatedBlue
        transition duration-500"
         >
           <div className="flex items-center">

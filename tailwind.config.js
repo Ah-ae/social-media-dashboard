@@ -3,6 +3,11 @@ module.exports = {
   content: ["./pages/**/*.{js,jsx}", "./components/**/*.{js,jsx}"],
   darkMode: "class",
   theme: {
+    screens: {
+      tablet: "640px",
+      laptop: "1024px",
+      desktop: "1440px",
+    },
     colors: {
       primary: {
         white: "hsl(0, 0%, 100%)",
@@ -28,12 +33,14 @@ module.exports = {
           veryDarkBlue: "hsl(232, 19%, 15%)",
           darkDesaturatedBlue: "hsl(228, 28%, 20%)",
           desaturatedBlue: "hsl(228, 34%, 66%)",
+          cardHoverBg: "hsl(229, 21%, 30%)",
         },
         light: {
           veryPaleBlue: "hsl(225, 100%, 98%)",
           lightGrayishBlue: "hsl(227, 47%, 96%)",
           darkGrayishBlue: "hsl(228, 12%, 44%)",
           veryDarkBlue: "hsl(230, 17%, 14%)",
+          cardHoverBg: "hsl(228, 32%, 90%)",
         },
       },
     },

@@ -4,7 +4,9 @@ import TrendIndicator from "./TrendIndicator";
 function TodayCard({ logoPath, label, type, number, changeType, percentage }) {
   return (
     <section
-      className={`h-40 p-8 flex flex-col justify-between items-center bg-theme-light-lightGrayishBlue dark:bg-theme-dark-darkDesaturatedBlue text-theme-light-darkGrayishBlue dark:text-theme-dark-desaturatedBlue
+      className={`laptop:h-36 h-40 p-8 flex flex-col justify-between items-center bg-theme-light-lightGrayishBlue 
+      hover:bg-theme-light-cardHoverBg
+      dark:bg-theme-dark-darkDesaturatedBlue dark:hover:bg-theme-dark-cardHoverBg text-theme-light-darkGrayishBlue dark:text-theme-dark-desaturatedBlue cursor-pointer
       transition duration-500 rounded-md`}
     >
       <div className="w-full flex justify-between">

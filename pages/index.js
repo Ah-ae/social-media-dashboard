@@ -33,52 +33,54 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <main className="p-8 bg-primary-white dark:bg-theme-dark-bgVeryDarkBlue">
-        <div className="text-theme-light-darkGrayishBlue dark:text-theme-dark-desaturatedBlue font-semibold transition duration-500">
-          <div>
-            <h1 className="text-theme-light-veryDarkBlue dark:text-primary-white text-3xl font-bold">
-              Social Media Dashboard
-            </h1>
-            <span>Total Followers: 23,004</span>
+      <main className="laptop:h-screen laptop:flex laptop:justify-center laptop:items-center p-8 bg-primary-white dark:bg-theme-dark-bgVeryDarkBlue">
+        <div className="tablet:w-3/5 tablet:mx-auto laptop:w-4/5 laptop:max-w-6xl">
+          <div className="laptop:mb-8 laptop:flex laptop:justify-between text-theme-light-darkGrayishBlue dark:text-theme-dark-desaturatedBlue font-semibold transition duration-500">
+            <div>
+              <h1 className="text-theme-light-veryDarkBlue dark:text-primary-white text-3xl font-bold">
+                Social Media Dashboard
+              </h1>
+              <span>Total Followers: 23,004</span>
+            </div>
+            <div className="laptop:hidden my-6 h-px bg-theme-light-darkGrayishBlue dark:bg-theme-dark-desaturatedBlue"></div>
+            <div className="mb-8 flex justify-between items-center ">
+              <span className="laptop:mr-3">Dark Mode</span>
+              <Toggle handleToggle={toggleDarkMode} />
+            </div>
           </div>
-          <div className="h-px bg-theme-light-darkGrayishBlue dark:bg-theme-dark-desaturatedBlue"></div>
-          <div className="flex justify-between">
-            <span>Dark Mode</span>
-            <Toggle handleToggle={toggleDarkMode} />
-          </div>
+          <ul className="laptop:grid laptop:grid-cols-4 laptop:gap-x-4 flex flex-col">
+            {socialMediaStats.map((info, idx) => (
+              <li key={idx} className="mb-6">
+                <FollowerCard
+                  logoPath={`/icon-${info.socialMediaType}.svg`}
+                  type={info.socialMediaType}
+                  account={info.account}
+                  follower={info.follower}
+                  changeType={info.changeType}
+                  count={info.count}
+                  borderTopColor={info.borderTopColor}
+                />
+              </li>
+            ))}
+          </ul>
+          <h2 className="mt-10 mb-8 text-theme-light-darkGrayishBlue dark:text-primary-white text-2xl font-semibold">
+            Overview - Today
+          </h2>
+          <ul className="laptop:grid laptop:grid-cols-4 laptop:gap-x-4 flex flex-col">
+            {socialMediaMetrics.map((info, idx) => (
+              <li key={idx} className="mb-6">
+                <TodayCard
+                  label={info.label}
+                  logoPath={`/icon-${info.socialMediaType}.svg`}
+                  type={info.socialMediaType}
+                  number={info.number}
+                  changeType={info.changeType}
+                  percentage={info.percentage}
+                />
+              </li>
+            ))}
+          </ul>
         </div>
-        <ul className="flex flex-col space-y-6">
-          {socialMediaStats.map((info, idx) => (
-            <li key={idx}>
-              <FollowerCard
-                logoPath={`/icon-${info.socialMediaType}.svg`}
-                type={info.socialMediaType}
-                account={info.account}
-                follower={info.follower}
-                changeType={info.changeType}
-                count={info.count}
-                borderTopColor={info.borderTopColor}
-              />
-            </li>
-          ))}
-        </ul>
-        <h2 className="text-theme-light-darkGrayishBlue dark:text-primary-white text-2xl font-semibold">
-          Overview - Today
-        </h2>
-        <ul className="flex flex-col space-y-6">
-          {socialMediaMetrics.map((info, idx) => (
-            <li key={idx}>
-              <TodayCard
-                label={info.label}
-                logoPath={`/icon-${info.socialMediaType}.svg`}
-                type={info.socialMediaType}
-                number={info.number}
-                changeType={info.changeType}
-                percentage={info.percentage}
-              />
-            </li>
-          ))}
-        </ul>
       </main>
     </>
   );
